@@ -1,2 +1,3 @@
 module Codility {
+	requires junit;
 }
