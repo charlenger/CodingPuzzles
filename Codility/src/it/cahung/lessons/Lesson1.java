@@ -2,7 +2,7 @@ package it.cahung.lessons;
 
 public class Lesson1 {
 
-	public int solution(int N) throws IllegalArgumentException {
+	public int solution(int N) {
 		if (N < 0) {
 			throw new IllegalArgumentException("N is an integer within the range [1..2,147,483,647]");
 		}

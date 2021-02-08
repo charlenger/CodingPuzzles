@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Lesson2 {
 
-	public int[] solutionCyclicRotation(int[] A, int K) throws IllegalArgumentException {
+	public int[] solutionCyclicRotation(int[] A, int K) {
 		int N = A.length;
 		if (N > 100 || K > 100) {
 			throw new IllegalArgumentException("N and K are integers within the range [0..100]");

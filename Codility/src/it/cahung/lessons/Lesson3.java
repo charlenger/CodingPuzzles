@@ -23,4 +23,27 @@ public class Lesson3 {
 		return (int) (expectedTotal - total);
 	}
 
+	public int solutionTapeEquilibrium(int[] A) {
+		int N = A.length;
+		if (N < 2 || N > 100000) {
+			throw new IllegalArgumentException("Size of the array is not valid");
+		}
+		int[] cumulativeSum = new int[N];
+		cumulativeSum[0] = A[0];
+		for (int i = 1; i < N; ++i) {
+			cumulativeSum[i] = A[i] + cumulativeSum[i - 1];
+		}
+		int minDifference = Integer.MAX_VALUE;
+		int currentBackwardAccumulation = 0;
+		int currentDifference = Integer.MAX_VALUE;
+		for (int i = N - 1; i > 0; --i) {
+			currentBackwardAccumulation += A[i];
+			currentDifference = Math.abs(currentBackwardAccumulation - cumulativeSum[i - 1]);
+			if (currentDifference < minDifference) {
+				minDifference = currentDifference;
+			}
+		}
+		return minDifference;
+	}
+
 }
