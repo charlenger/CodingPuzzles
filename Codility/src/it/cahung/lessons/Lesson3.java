@@ -13,4 +13,14 @@ public class Lesson3 {
 		return (totalDistanceToCover / D) + (totalDistanceToCover % D > 0 ? 1 : 0);
 	}
 
+	public int solutionPermMissingElement(int[] A) {
+		int N = A.length;
+		long total = 0;
+		long expectedTotal = ((long) N + 2L) * ((long) N + 1L) / 2L;
+		for (int i = 0; i < N; ++i) {
+			total += (long) A[i];
+		}
+		return (int) (expectedTotal - total);
+	}
+
 }
