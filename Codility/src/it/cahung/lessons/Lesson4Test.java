@@ -1,5 +1,6 @@
 package it.cahung.lessons;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -14,23 +15,39 @@ public class Lesson4Test {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void lesson3FrogRiverWrongInputA() {
+	public void lesson4FrogRiverWrongInputA() {
 		lesson4.solutionFrogRiver(4, new int[] {});
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void lesson3FrogRiverWrongInputX() {
+	public void lesson4FrogRiverWrongInputX() {
 		lesson4.solutionFrogRiver(-2, new int[] { 12, 123, 12 });
 	}
 
 	@Test
-	public void lesson3FrogRiver() {
+	public void lesson4FrogRiver() {
 		assertEquals(Integer.valueOf(-1), Integer.valueOf(lesson4.solutionFrogRiver(2, new int[] { 12, 123, 12 })));
 		assertEquals(Integer.valueOf(6),
 				Integer.valueOf(lesson4.solutionFrogRiver(5, new int[] { 1, 3, 1, 4, 2, 3, 5, 4 })));
-		assertEquals(Integer.valueOf(-1),
-				Integer.valueOf(lesson4.solutionFrogRiver(3, new int[] { 1 })));
-		assertEquals(Integer.valueOf(0),
-				Integer.valueOf(lesson4.solutionFrogRiver(1, new int[] { 1 })));
+		assertEquals(Integer.valueOf(-1), Integer.valueOf(lesson4.solutionFrogRiver(3, new int[] { 1 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson4.solutionFrogRiver(1, new int[] { 1 })));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson4MaxCountersWrongInputN() {
+		lesson4.solutionMaxCounters(-2, new int[] { 12, 123, 12 });
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson4MaxCountersWrongInputA() {
+		lesson4.solutionMaxCounters(5, new int[] {});
+	}
+
+	@Test
+	public void lesson4MaxCounter() {
+		assertArrayEquals(new int[] { 3, 2, 2, 4, 2 },
+				lesson4.solutionMaxCounters(5, new int[] { 3, 4, 4, 6, 1, 4, 4 }));
+		assertArrayEquals(new int[] { 1, 0, 1, 4, 0 },
+				lesson4.solutionMaxCounters(5, new int[] { 3, 4, 4, 1, 4, 4 }));
 	}
 }
