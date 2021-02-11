@@ -47,7 +47,26 @@ public class Lesson4Test {
 	public void lesson4MaxCounter() {
 		assertArrayEquals(new int[] { 3, 2, 2, 4, 2 },
 				lesson4.solutionMaxCounters(5, new int[] { 3, 4, 4, 6, 1, 4, 4 }));
-		assertArrayEquals(new int[] { 1, 0, 1, 4, 0 },
-				lesson4.solutionMaxCounters(5, new int[] { 3, 4, 4, 1, 4, 4 }));
+		assertArrayEquals(new int[] { 1, 0, 1, 4, 0 }, lesson4.solutionMaxCounters(5, new int[] { 3, 4, 4, 1, 4, 4 }));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson4MissingIntegerWrongInputA0() {
+		lesson4.solutionMissingInteger(new int[0]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson4MissingIntegerWrongInputA100001() {
+		lesson4.solutionMissingInteger(new int[100001]);
+	}
+
+	@Test
+	public void lesson4MissingInteger() {
+		assertEquals(Integer.valueOf(5),
+				Integer.valueOf(lesson4.solutionMissingInteger(new int[] { 1, 3, 6, 4, 1, 2 })));
+		assertEquals(Integer.valueOf(4), Integer.valueOf(lesson4.solutionMissingInteger(new int[] { 1, 2, 3 })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson4.solutionMissingInteger(new int[] { -3, -1 })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson4.solutionMissingInteger(new int[] { 2, 4 })));
+		assertEquals(Integer.valueOf(3), Integer.valueOf(lesson4.solutionMissingInteger(new int[] { 1, 2, 4 })));
 	}
 }

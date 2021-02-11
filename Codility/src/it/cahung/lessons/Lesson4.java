@@ -53,4 +53,40 @@ public class Lesson4 {
 		}
 		return solution;
 	}
+
+	public int solutionMissingInteger(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 100000) {
+			throw new IllegalArgumentException("N must be between 1 and 100000");
+		}
+		Set<Integer> foundNumbers = new HashSet<>();
+		int lowerBoundary = Integer.MAX_VALUE;
+		int higherBoundary = 0;
+		for (int i = 0; i < N; ++i) {
+			int currentInteger = A[i];
+			if (currentInteger > 0) {
+				foundNumbers.add(currentInteger);
+				if (currentInteger < lowerBoundary) {
+					lowerBoundary = currentInteger;
+				}
+				if (currentInteger > higherBoundary) {
+					higherBoundary = currentInteger;
+				}
+			}
+		}
+		// special cases
+		if (lowerBoundary != 1) {
+			return 1;
+		}
+		if (higherBoundary == foundNumbers.size()) {
+			return higherBoundary + 1;
+		}
+		// Search for the number
+		for (int i = lowerBoundary; i < higherBoundary; ++i) {
+			if (!foundNumbers.contains(i)) {
+				return i;
+			}
+		}
+		return 1;
+	}
 }
