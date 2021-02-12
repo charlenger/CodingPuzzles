@@ -89,4 +89,25 @@ public class Lesson4 {
 		}
 		return 1;
 	}
+
+	public int solutionPermCheck(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 100000) {
+			throw new IllegalArgumentException("N must be between 1 and 100000");
+		}
+		Set<Integer> foundNumbers = new HashSet<>();
+		int min = Integer.MAX_VALUE;
+		int max = 0;
+		for (int i = 0; i < N; ++i) {
+			int currentValue = A[i];
+			foundNumbers.add(currentValue);
+			if (currentValue < min) {
+				min = currentValue;
+			}
+			if (currentValue > max) {
+				max = currentValue;
+			}
+		}
+		return min == 1 && max == N && foundNumbers.size() == N ? 1 : 0;
+	}
 }

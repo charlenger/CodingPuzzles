@@ -69,4 +69,20 @@ public class Lesson4Test {
 		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson4.solutionMissingInteger(new int[] { 2, 4 })));
 		assertEquals(Integer.valueOf(3), Integer.valueOf(lesson4.solutionMissingInteger(new int[] { 1, 2, 4 })));
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson4PermCheckWrongInputA0() {
+		lesson4.solutionPermCheck(new int[0]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson4PermCheckWrongInputA100001() {
+		lesson4.solutionPermCheck(new int[100001]);
+	}
+
+	@Test
+	public void lesson4PermCheck() {
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson4.solutionPermCheck(new int[] { 4, 1, 3, 2 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson4.solutionPermCheck(new int[] { 4, 1, 3 })));
+	}
 }
