@@ -1,7 +1,5 @@
 package it.cahung.lessons;
 
-import java.util.Arrays;
-
 public class Lesson5 {
 
 	private final int MAX = 2000000000;
@@ -72,5 +70,26 @@ public class Lesson5 {
 
 		}
 		return solution;
+	}
+
+	public int solutionPassingCars(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 100000) {
+			throw new IllegalArgumentException("Wrong array size");
+		}
+		int zeros = 0;
+		int pairs = 0;
+		for (int i = 0; i < N; ++i) {
+			int currentValue = A[i];
+			if (currentValue == 0) {
+				zeros++;
+			} else {
+				pairs += zeros;
+				if (pairs > 1000000000) {
+					return -1;
+				}
+			}
+		}
+		return pairs;
 	}
 }

@@ -94,4 +94,24 @@ public class Lesson5Test {
 				lesson5.solutionGenomicRangeQuery("AC", new int[] { 0, 0, 1 }, new int[] { 0, 1, 1 }));
 
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson5PassingCarsWrongInput() {
+		lesson5.solutionPassingCars(new int[0]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson5PassingCarsWrongInputTooMuch() {
+		lesson5.solutionPassingCars(new int[100001]);
+	}
+
+	@Test
+	public void lesson5PassingCars() {
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson5.solutionPassingCars(new int[] { 0, 1, 0, 1, 1 })));
+		assertEquals(Integer.valueOf(0),
+				Integer.valueOf(lesson5.solutionPassingCars(new int[] { 0, 0, 0, 0, 0, 0, 0 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson5.solutionPassingCars(new int[] { 0 })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson5.solutionPassingCars(new int[] { 0, 1 })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson5.solutionPassingCars(new int[] { 1, 0, 1 })));
+	}
 }
