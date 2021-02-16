@@ -114,4 +114,20 @@ public class Lesson5Test {
 		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson5.solutionPassingCars(new int[] { 0, 1 })));
 		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson5.solutionPassingCars(new int[] { 1, 0, 1 })));
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson5MinAvgTwoSliceWrongInput() {
+		lesson5.solutionMinAvgTwoSlice(new int[1]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson5MinAvgTwoSliceWrongInputTooMuch() {
+		lesson5.solutionMinAvgTwoSlice(new int[100001]);
+	}
+
+	@Test
+	public void lesson5MinAvgTwoSlice() {
+		assertEquals(Integer.valueOf(1),
+				Integer.valueOf(lesson5.solutionMinAvgTwoSlice(new int[] { 4, 2, 2, 5, 1, 5, 8 })));
+	}
 }

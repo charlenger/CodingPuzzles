@@ -92,4 +92,59 @@ public class Lesson5 {
 		}
 		return pairs;
 	}
+
+	// 60% O(N^2) Whole set of slices to check
+//	public int solutionMinAvgTwoSlice(int[] A) {
+//		int N = A != null ? A.length : 0;
+//		if (N < 2 || N > 100000) {
+//			throw new IllegalArgumentException("Wrong A size");
+//		}
+//		int[] prefixSum = new int[N];
+//		int prev = 0;
+//		for (int i = 0; i < N; ++i) {
+//			prev = prefixSum[i] = prev + A[i];
+//		}
+//		float currentAvg = Float.MAX_VALUE;
+//		int currentMinAvgIdx = Integer.MAX_VALUE;
+//		int prefixSumP = 0;
+//		int Nminus1 = N - 1;
+//		for (int p = 0; p < Nminus1; ++p) {
+//			for (int q = p + 1; q < N; ++q) {
+//				int sumForPandQ = prefixSum[q] - prefixSumP;
+//				float sliceAvg = (float) sumForPandQ / (float) (q - p + 1);
+//				if (sliceAvg < currentAvg) {
+//					currentMinAvgIdx = p;
+//					currentAvg = sliceAvg;
+//				}
+//			}
+//			prefixSumP = prefixSum[p];
+//		}
+//		return currentMinAvgIdx;
+//	}
+
+	public int solutionMinAvgTwoSlice(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 2 || N > 100000) {
+			throw new IllegalArgumentException("Wrong A size");
+		}
+		int solution = 0;
+		float currentAvg = Float.MAX_VALUE;
+		for (int i = 0; i < N - 1; ++i) {
+			int endIdx = i + 2;
+			float avg3sliced = Float.MAX_VALUE;
+			if (endIdx < N) {
+				avg3sliced = (float) (A[i] + A[i + 1] + A[endIdx]) / 3f;
+			}
+			float avg2sliced = (float) (A[i] + A[i + 1]) / 2f;
+			if (avg3sliced < currentAvg) {
+				solution = i;
+				currentAvg = avg3sliced;
+			}
+			if (avg2sliced < currentAvg) {
+				solution = i;
+				currentAvg = avg2sliced;
+			}
+		}
+		return solution;
+	}
 }
