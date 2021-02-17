@@ -22,4 +22,22 @@ public class Lesson6Test {
 	public void lesson6Distinct() {
 		assertEquals(Integer.valueOf(3), Integer.valueOf(lesson6.solutionDistinct(new int[] { 2, 1, 1, 2, 3, 1 })));
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson6MaxProductOfThreeWrongInputSmall() {
+		lesson6.solutionMaxProductOfThree(new int[2]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson6MaxProductOfThreeWrongInputLarge() {
+		lesson6.solutionMaxProductOfThree(new int[100001]);
+	}
+
+	@Test
+	public void lesson6MaxProductOfThree() {
+		assertEquals(Integer.valueOf(60),
+				Integer.valueOf(lesson6.solutionMaxProductOfThree(new int[] { -3, 1, 2, -2, 5, 6 })));
+		assertEquals(Integer.valueOf(125),
+				Integer.valueOf(lesson6.solutionMaxProductOfThree(new int[] { -5, 5, -5, 4 })));
+	}
 }
