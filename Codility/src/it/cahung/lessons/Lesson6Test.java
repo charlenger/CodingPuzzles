@@ -52,4 +52,15 @@ public class Lesson6Test {
 		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson6.solutionTrinagle(new int[] { 10, 2, 5, 1, 8, 20 })));
 		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson6.solutionTrinagle(new int[] { 10, 50, 5, 1 })));
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson6NumberOfDiscIntersectionsWrongInputLarge() {
+		lesson6.solutionNumberOfDiscIntersections(new int[100001]);
+	}
+
+	@Test
+	public void lesson6NumberOfDiscIntersections() {
+		assertEquals(Integer.valueOf(11),
+				Integer.valueOf(lesson6.solutionNumberOfDiscIntersections(new int[] { 1, 5, 2, 1, 4, 0 })));
+	}
 }

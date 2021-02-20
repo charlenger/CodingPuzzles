@@ -47,4 +47,12 @@ public class Lesson6 {
 		return 0;
 	}
 
+	public int solutionNumberOfDiscIntersections(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N > 100000) {
+			throw new IllegalArgumentException("Wrong input size");
+		}
+		return 0;
+	}
+
 }
