@@ -62,5 +62,8 @@ public class Lesson6Test {
 	public void lesson6NumberOfDiscIntersections() {
 		assertEquals(Integer.valueOf(11),
 				Integer.valueOf(lesson6.solutionNumberOfDiscIntersections(new int[] { 1, 5, 2, 1, 4, 0 })));
+		assertEquals(Integer.valueOf(2),
+				Integer.valueOf(lesson6.solutionNumberOfDiscIntersections(new int[] { 1, 2147483647, 0 })));
+
 	}
 }

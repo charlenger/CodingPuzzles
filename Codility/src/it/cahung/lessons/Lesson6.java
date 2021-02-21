@@ -47,7 +47,7 @@ public class Lesson6 {
 		return 0;
 	}
 
-	// O(N^2) to be refactored 50%
+	// O(N^2) 50% to be refactored
 	public int solutionNumberOfDiscIntersections(int[] A) {
 		int N = A != null ? A.length : 0;
 		if (N > 100000) {
@@ -56,10 +56,10 @@ public class Lesson6 {
 		int intersections = 0;
 		for (int i = 0; i < N - 1; ++i) {
 			for (int j = i + 1; j < N; ++j) {
-				int minA = i - A[i];
-				int maxA = i + A[i];
-				int minB = j - A[j];
-				int maxB = j + A[j];
+				long minA = (long) i - (long) A[i];
+				long maxA = (long) i + (long) A[i];
+				long minB = (long) j - (long) A[j];
+				long maxB = (long) j + (long) A[j];
 				if ((minA >= minB && minA <= maxB) || (minB >= minA && minB <= maxA) || (minA >= minB && maxA <= maxB)
 						|| (minA <= minB && maxA >= maxB)) {
 					intersections++;
