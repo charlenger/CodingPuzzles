@@ -11,7 +11,7 @@ public class Lesson7 {
 			throw new IllegalArgumentException("Wrong input size");
 		}
 		char[] brackets = S.toCharArray();
-		Deque<Character> deque = new ArrayDeque<Character>();
+		Deque<Character> deque = new ArrayDeque<>();
 		for (int i = 0; i < N; ++i) {
 			char currentBracket = brackets[i];
 			if (currentBracket == '{' || currentBracket == '[' || currentBracket == '(') {
@@ -41,6 +41,36 @@ public class Lesson7 {
 			}
 		}
 		return deque.size() == 0 ? 1 : 0;
+	}
+
+	public int solutionFish(int[] A, int[] B) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 100001 || N != B.length) {
+			throw new IllegalArgumentException("Wrong input sizes");
+		}
+		Deque<Integer> fishes = new ArrayDeque<>();
+		int aliveFishes = 0;
+		for (int i = 0; i < N; ++i) {
+			int currentDirection = B[i];
+			int currentFishSize = A[i];
+			if (currentDirection == 0) {
+				while (!fishes.isEmpty()) {
+					Integer lastPoll = fishes.poll();
+					if (lastPoll == currentFishSize) {
+						throw new IllegalArgumentException("Wrong array content");
+					} else if (lastPoll > currentFishSize) {
+						fishes.push(lastPoll);
+						break;
+					}
+				}
+				if (fishes.isEmpty()) {
+					aliveFishes++;
+				}
+			} else {
+				fishes.push(currentFishSize);
+			}
+		}
+		return aliveFishes + fishes.size();
 	}
 
 }
