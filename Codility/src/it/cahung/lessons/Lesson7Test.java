@@ -64,4 +64,25 @@ public class Lesson7Test {
 		assertEquals(Integer.valueOf(5),
 				Integer.valueOf(lesson7.solutionFish(new int[] { 4, 3, 2, 1, 5 }, new int[] { 0, 0, 0, 1, 1 })));
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson7NestingWrongInputNull() {
+		lesson7.solutionNesting(null);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson7NestingWrongInput() {
+		lesson7.solutionNesting(new String(new char[1000001]));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson7NestingWrongInputLetters() {
+		lesson7.solutionNesting("ASD");
+	}
+
+	@Test
+	public void lesson7Nesting() {
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson7.solutionNesting("(()(())())")));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson7.solutionNesting("())")));
+	}
 }

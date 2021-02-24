@@ -73,4 +73,29 @@ public class Lesson7 {
 		return aliveFishes + fishes.size();
 	}
 
+	public int solutionNesting(String S) {
+		int N = S != null ? S.length() : -1;
+		if (N < 0 || N > 1000000) {
+			throw new IllegalArgumentException("Wrong input size");
+		}
+		int openBrackets = 0;
+		for (int i = 0; i < N; ++i) {
+			char currentChar = S.charAt(i);
+			switch (currentChar) {
+			case '(':
+				openBrackets++;
+				break;
+			case ')':
+				openBrackets--;
+				if (openBrackets < 0) {
+					return 0;
+				}
+				break;
+			default:
+				throw new IllegalArgumentException("Wrong input type");
+			}
+		}
+		return openBrackets == 0 ? 1 : 0;
+	}
+
 }
