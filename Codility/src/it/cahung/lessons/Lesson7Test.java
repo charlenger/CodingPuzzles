@@ -74,7 +74,7 @@ public class Lesson7Test {
 	public void lesson7NestingWrongInput() {
 		lesson7.solutionNesting(new String(new char[1000001]));
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
 	public void lesson7NestingWrongInputLetters() {
 		lesson7.solutionNesting("ASD");
@@ -84,5 +84,24 @@ public class Lesson7Test {
 	public void lesson7Nesting() {
 		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson7.solutionNesting("(()(())())")));
 		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson7.solutionNesting("())")));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson7SkylineWrongInputNull() {
+		lesson7.solutionSkyline(new int[0]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson7SkylineWrongInput() {
+		lesson7.solutionSkyline(new int[100001]);
+	}
+
+	@Test
+	public void lesson7Skyline() {
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson7.solutionSkyline(new int[] { 1, 1, 1, 1, 1, 1, 1 })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson7.solutionSkyline(new int[] { 1 })));
+		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson7.solutionSkyline(new int[] { 1, 1, 1, 1, 1, 1, 2 })));
+		assertEquals(Integer.valueOf(7),
+				Integer.valueOf(lesson7.solutionSkyline(new int[] { 8, 8, 5, 7, 9, 8, 7, 4, 8 })));
 	}
 }

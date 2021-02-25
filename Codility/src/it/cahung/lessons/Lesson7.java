@@ -98,4 +98,25 @@ public class Lesson7 {
 		return openBrackets == 0 ? 1 : 0;
 	}
 
+	public int solutionSkyline(int[] H) {
+		int N = H != null ? H.length : 0;
+		if (N < 1 || N > 100000) {
+			throw new IllegalArgumentException("Wrong input size");
+		}
+		int numberOfCuboids = 0;
+		Deque<Integer> deque = new ArrayDeque<>();
+		deque.push(H[0]);
+		for (int i = 1; i < N; ++i) {
+			int currentHeight = H[i];
+			while (!deque.isEmpty() && currentHeight < deque.peek()) {
+				deque.poll();
+				numberOfCuboids++;
+			}
+			if (deque.isEmpty() || currentHeight != deque.peek()) {
+				deque.push(currentHeight);
+			}
+		}
+		return numberOfCuboids + deque.size();
+	}
+
 }
