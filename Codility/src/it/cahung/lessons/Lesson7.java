@@ -118,5 +118,4 @@ public class Lesson7 {
 		}
 		return numberOfCuboids + deque.size();
 	}
-
 }
