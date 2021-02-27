@@ -38,5 +38,6 @@ public class Lesson8Test {
 	@Test
 	public void lesson8EquiLeader() {
 		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson8.solutionEquiLeader(new int[] { 4, 3, 4, 4, 4, 2 })));
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson8.solutionEquiLeader(new int[] { 4, 4, 4, 4, 4, 4 })));
 	}
 }
