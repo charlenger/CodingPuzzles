@@ -23,4 +23,12 @@ public class Lesson8 extends Lesson7 {
 		return -1;
 	}
 
+	public int solutionEquiLeader(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 100000) {
+			throw new IllegalArgumentException("Wrong input sizes");
+		}
+		return 0;
+	}
+
 }
