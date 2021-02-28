@@ -20,11 +20,13 @@ public class Lesson9Test {
 
 	@Test
 	public void lesson8MaxProfit() {
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 5, 4, 3, 2, 1, 0 })));
+		assertEquals(Integer.valueOf(0),
+				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 10, 10, 10, 10, 10, 10 })));
 		assertEquals(Integer.valueOf(356),
 				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 23171, 21011, 21123, 21366, 21013, 21367 })));
 		assertEquals(Integer.valueOf(200),
-				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 200, 0, 0, 0, 0, 400 })));
-		assertEquals(Integer.valueOf(0),
-				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 10, 10, 10, 10, 10, 10 })));
+				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 200, 300, 300, 300, 300, 400 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson9.solutionMaxProfit(new int[0])));
 	}
 }
