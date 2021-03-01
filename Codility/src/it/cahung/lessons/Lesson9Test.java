@@ -42,6 +42,14 @@ public class Lesson9Test {
 
 	@Test
 	public void lesson9MaxSliceSum() {
-		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] {})));
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { 3, 2, -6, 4, 0 })));
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { 1, 1, 1, 1, 1 })));
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { 5 })));
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { 5, 0, 0 })));
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { -6, 5, 0, 0, -6 })));
+		assertEquals(Integer.valueOf(23), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { -6, -5, 11, 12, -6 })));
+		assertEquals(Integer.valueOf(-1), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { -1, -1, -1, -1, -1 })));
+		assertEquals(Integer.valueOf(-1), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { -1, -1, -1, -1, -6 })));
+		assertEquals(Integer.valueOf(4), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { 3, -2, 3 })));
 	}
 }

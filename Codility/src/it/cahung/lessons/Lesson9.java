@@ -32,7 +32,23 @@ public class Lesson9 extends Lesson8 {
 		if (N < 1 || N > 1000000) {
 			throw new IllegalArgumentException("Wrong input size");
 		}
-		return 0;
+		long absoluteMaxSum = A[0];
+		long currentMaxSum = A[0];
+		for (int i = 1; i < N; ++i) {
+			int currentValue = A[i];
+			long newSum = currentMaxSum + currentValue;
+			if (newSum >= currentMaxSum) {
+				if (currentValue < newSum) {
+					currentMaxSum = newSum;
+				} else {
+					currentMaxSum = currentValue;
+				}
+			} else {
+				absoluteMaxSum = currentMaxSum > absoluteMaxSum ? currentMaxSum : absoluteMaxSum;
+				currentMaxSum = currentValue;
+			}
+		}
+		return absoluteMaxSum > currentMaxSum ? (int) absoluteMaxSum : (int) currentMaxSum;
 	}
 
 }
