@@ -27,4 +27,12 @@ public class Lesson9 extends Lesson8 {
 		return maxProfit;
 	}
 
+	public int solutionMaxSliceSum(int[] A) {
+		int N = A == null ? -1 : A.length;
+		if (N < 1 || N > 1000000) {
+			throw new IllegalArgumentException("Wrong input size");
+		}
+		return 0;
+	}
+
 }

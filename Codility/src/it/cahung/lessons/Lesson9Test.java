@@ -29,4 +29,18 @@ public class Lesson9Test {
 				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 200, 300, 300, 300, 300, 400 })));
 		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson9.solutionMaxProfit(new int[0])));
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson8MaxSliceSumWrongInput() {
+		lesson9.solutionMaxSliceSum(new int[0]);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson8MaxSliceSumWrongInputTooMuch() {
+		lesson9.solutionMaxSliceSum(new int[1000001]);
+	}
+
+	@Test
+	public void lesson8MaxSliceSum() {
+	}
 }
