@@ -14,12 +14,12 @@ public class Lesson9Test {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void lesson8MaxProfitWrongInput() {
+	public void lesson9MaxProfitWrongInput() {
 		lesson9.solutionMaxProfit(new int[400001]);
 	}
 
 	@Test
-	public void lesson8MaxProfit() {
+	public void lesson9MaxProfit() {
 		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 5, 4, 3, 2, 1, 0 })));
 		assertEquals(Integer.valueOf(0),
 				Integer.valueOf(lesson9.solutionMaxProfit(new int[] { 10, 10, 10, 10, 10, 10 })));
@@ -31,16 +31,17 @@ public class Lesson9Test {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void lesson8MaxSliceSumWrongInput() {
+	public void lesson9MaxSliceSumWrongInput() {
 		lesson9.solutionMaxSliceSum(new int[0]);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void lesson8MaxSliceSumWrongInputTooMuch() {
+	public void lesson9MaxSliceSumWrongInputTooMuch() {
 		lesson9.solutionMaxSliceSum(new int[1000001]);
 	}
 
 	@Test
-	public void lesson8MaxSliceSum() {
+	public void lesson9MaxSliceSum() {
+		assertEquals(Integer.valueOf(5), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] {})));
 	}
 }
