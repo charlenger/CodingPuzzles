@@ -52,4 +52,15 @@ public class Lesson9Test {
 		assertEquals(Integer.valueOf(-1), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { -1, -1, -1, -1, -6 })));
 		assertEquals(Integer.valueOf(4), Integer.valueOf(lesson9.solutionMaxSliceSum(new int[] { 3, -2, 3 })));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson9MaxDoubleSliceSumWrongInputTooSmall() {
+		lesson9.solutionMaxDoubleSliceSum(new int[2]);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson9MaxDoubleSliceSumWrongInputTooMuch() {
+		lesson9.solutionMaxDoubleSliceSum(new int[100001]);
+	}
+
 }

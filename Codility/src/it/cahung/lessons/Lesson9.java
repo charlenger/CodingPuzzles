@@ -47,4 +47,12 @@ public class Lesson9 extends Lesson8 {
 		return (int) absoluteMax;
 	}
 
+	public int solutionMaxDoubleSliceSum(int[] A) {
+		int N = A == null ? 0 : A.length;
+		if (N < 3 || N > 100000) {
+			throw new IllegalArgumentException("Wrong input size");
+		}
+		return 0;
+	}
+
 }
