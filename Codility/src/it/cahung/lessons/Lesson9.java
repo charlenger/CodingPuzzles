@@ -52,7 +52,30 @@ public class Lesson9 extends Lesson8 {
 		if (N < 3 || N > 100000) {
 			throw new IllegalArgumentException("Wrong input size");
 		}
-		return 0;
+		if (N == 3) {
+			return 0;
+		}
+		long absoluteMax = Long.MIN_VALUE;
+		long currentSum = 0;
+		int absoluteMin = Integer.MAX_VALUE;
+		int minimumFound = A[0] < 0 ? 0 : A[0];
+		for (int i = 1; i < N - 1; ++i) {
+			int currentValue = A[i];
+			if (currentValue < minimumFound) {
+				minimumFound = currentValue;
+			}
+			currentSum += currentValue;
+			if (currentSum >= absoluteMax) {
+				absoluteMax = currentSum;
+				absoluteMin = minimumFound;
+			}
+			if (currentSum < 0) {
+				currentSum = 0;
+				minimumFound = Integer.MAX_VALUE;
+			}
+		}
+		int result = (int) absoluteMax - (absoluteMin != absoluteMax ? absoluteMin : 0);
+		return result < 0 ? 0 : result;
 	}
 
 }
