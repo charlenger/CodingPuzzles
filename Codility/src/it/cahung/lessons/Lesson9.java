@@ -1,5 +1,7 @@
 package it.cahung.lessons;
 
+import java.util.Arrays;
+
 public class Lesson9 extends Lesson8 {
 
 	public int solutionMaxProfit(int[] A) {
@@ -55,27 +57,34 @@ public class Lesson9 extends Lesson8 {
 		if (N == 3) {
 			return 0;
 		}
-		long absoluteMax = Long.MIN_VALUE;
-		long currentSum = 0;
-		int absoluteMin = Integer.MAX_VALUE;
-		int minimumFound = A[0] < 0 ? 0 : A[0];
+		int maxElement = -1;
+		long[] maxForwardSums = new long[N];
+		long[] maxBackwardSums = new long[N];
+		maxForwardSums[0] = 0;
+		maxBackwardSums[N - 1] = 0;
 		for (int i = 1; i < N - 1; ++i) {
-			int currentValue = A[i];
-			if (currentValue < minimumFound) {
-				minimumFound = currentValue;
+			int currentForwardValue = A[i];
+			if (currentForwardValue > maxElement) {
+				maxElement = currentForwardValue;
 			}
-			currentSum += currentValue;
-			if (currentSum >= absoluteMax) {
-				absoluteMax = currentSum;
-				absoluteMin = minimumFound;
-			}
-			if (currentSum < 0) {
-				currentSum = 0;
-				minimumFound = Integer.MAX_VALUE;
+			int currentBackwardValue = A[N - i - 1];
+			long newForwardSlice = currentForwardValue + maxForwardSums[i - 1];
+			long newBackwardSlice = currentBackwardValue + maxBackwardSums[N - i];
+			maxForwardSums[i] = currentForwardValue > newForwardSlice ? currentForwardValue : newForwardSlice;
+			maxBackwardSums[N - i - 1] = currentBackwardValue > newBackwardSlice ? currentBackwardValue
+					: newBackwardSlice;
+		}
+		int absoluteSum = 0;
+		for (int i = 1; i < N - 1; ++i) {
+			int currentForwardSum = (int) maxForwardSums[i - 1];
+			int currentBackwardSum = (int) maxBackwardSums[i + 1];
+			int currentSum = (currentForwardSum > 0 ? currentForwardSum : 0)
+					+ (currentBackwardSum > 0 ? currentBackwardSum : 0);
+			if (currentSum > absoluteSum) {
+				absoluteSum = currentSum;
 			}
 		}
-		int result = (int) absoluteMax - (absoluteMin != absoluteMax ? absoluteMin : 0);
-		return result < 0 ? 0 : result;
+		return absoluteSum > maxElement ? absoluteSum : maxElement;
 	}
 
 }

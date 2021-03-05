@@ -78,5 +78,7 @@ public class Lesson9Test {
 		assertEquals(Integer.valueOf(30), Integer.valueOf(lesson9.solutionMaxDoubleSliceSum(new int[] { -8, 10, 20, -5, -7, -4 })));
 		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson9.solutionMaxDoubleSliceSum(new int[] { -2, -3, -4, 1, -5, -6, -7 })));
 		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson9.solutionMaxDoubleSliceSum(new int[] { -4, -5, -1, -5, -7, -19, -11 })));
+		assertEquals(Integer.valueOf(13), Integer.valueOf(lesson9.solutionMaxDoubleSliceSum(new int[] { -4, 5, 5, -5, -5, 8, -11 })));
+		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson9.solutionMaxDoubleSliceSum(new int[] { -1, 1, -1, 1, -1, 1, -1, 1 })));
 	}
 }
