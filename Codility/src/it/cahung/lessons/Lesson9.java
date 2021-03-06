@@ -52,7 +52,7 @@ public class Lesson9 extends Lesson8 {
 	public int solutionMaxDoubleSliceSum(int[] A) {
 		int N = A == null ? 0 : A.length;
 		if (N < 3 || N > 100000) {
-			throw new IllegalArgumentException("Wrong input size");
+			throw new IllegalArgumentException("Wrong input size of array");
 		}
 		if (N == 3) {
 			return 0;
