@@ -6,13 +6,16 @@ public class Lesson10 {
 		if (N < 1) {
 			throw new IllegalArgumentException("Wrong input");
 		}
-		if (N == 1) {
-			return 1;
+		int counter = 0;
+		int sqrtN = (int) Math.sqrt(N);
+		if (Math.pow(sqrtN, 2) < N) {
+			sqrtN++;
+		} else {
+			counter++;
 		}
-		int counter = 2;
-		for (int i = 2; i <= N / 2; ++i) {
+		for (int i = 1; i < sqrtN; ++i) {
 			if (N % i == 0) {
-				counter++;
+				counter += 2;
 			}
 		}
 		return counter;
