@@ -21,4 +21,13 @@ public class Lesson10 {
 		return counter;
 	}
 
+	public int solutionFlags(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 400000) {
+			throw new IllegalArgumentException("Wrong input");
+		}
+		// TODO 
+		return 3;
+	}
+
 }
