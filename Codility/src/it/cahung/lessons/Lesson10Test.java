@@ -38,6 +38,9 @@ public class Lesson10Test {
 
 	@Test
 	public void lesson10Flags() {
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0 })));
 		assertEquals(Integer.valueOf(3),
 				Integer.valueOf(lesson10.solutionFlags(new int[] { 1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2 })));
 	}

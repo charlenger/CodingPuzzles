@@ -29,16 +29,32 @@ public class Lesson10 {
 		if (N < 1 || N > 400000) {
 			throw new IllegalArgumentException("Wrong input");
 		}
+		if (N < 3) {
+			return 0;
+		}
 		List<Integer> peaksIndexes = new ArrayList<>();
 		for (int i = 1; i < N - 1; ++i) {
 			if (A[i] > A[i - 1] && A[i] > A[i + 1]) {
 				peaksIndexes.add(i);
 			}
 		}
-		for (int i = peaksIndexes.size(); i >= 0; --i) {
-			
+		int maximumNumberOfFlags = peaksIndexes.size();
+		for (int i = maximumNumberOfFlags; i > 0; --i) {
+			int numberOfFlags = i - 1;
+			int prevPeak = peaksIndexes.get(0);
+			for (int j = 1; j < maximumNumberOfFlags; ++j) {
+				Integer currentPeak = peaksIndexes.get(j);
+				int currentDistance = currentPeak - prevPeak;
+				if (currentDistance > numberOfFlags) {
+					numberOfFlags--;
+					prevPeak = currentPeak;
+				}
+			}
+			if (numberOfFlags <= 0) {
+				return i;
+			}
 		}
-		return 3;
+		return 0;
 	}
 
 }
