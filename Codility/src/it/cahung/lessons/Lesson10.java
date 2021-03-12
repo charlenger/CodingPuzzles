@@ -39,20 +39,8 @@ public class Lesson10 {
 			}
 		}
 		int maximumNumberOfFlags = peaksIndexes.size();
-		for (int i = maximumNumberOfFlags; i > 0; --i) {
-			int numberOfFlags = i - 1;
-			int prevPeak = peaksIndexes.get(0);
-			for (int j = 1; j < maximumNumberOfFlags; ++j) {
-				Integer currentPeak = peaksIndexes.get(j);
-				int currentDistance = currentPeak - prevPeak;
-				if (currentDistance > numberOfFlags) {
-					numberOfFlags--;
-					prevPeak = currentPeak;
-				}
-			}
-			if (numberOfFlags <= 0) {
-				return i;
-			}
+		for (int i = 1; i < maximumNumberOfFlags; ++i) {
+			
 		}
 		return 0;
 	}
