@@ -33,12 +33,39 @@ public class Lesson10 {
 		int maxFlags = peaksIndexes.size();
 		if (maxFlags < 2) {
 			return maxFlags;
+		} else if (maxFlags == 2) {
+			return peaksIndexes.get(1) - peaksIndexes.get(0) > 2 ? 2 : 1;
 		} else {
-			int totalWidth = peaksIndexes.get(maxFlags - 1) - peaksIndexes.get(0) - 1;
-			int averageDistanceBetweenPeaks = totalWidth / maxFlags;
-
+			int lowerbound = 2;
+			int upperbound = maxFlags;
+			int currentFlagCount = (upperbound + lowerbound) / 2;
+			while (lowerbound != upperbound) {
+				boolean success = testNumberOfFlags(currentFlagCount, peaksIndexes);
+				if (success) {
+					lowerbound = currentFlagCount > lowerbound ? currentFlagCount : lowerbound + 1;
+				} else {
+					upperbound = currentFlagCount < upperbound ? currentFlagCount : upperbound - 1;
+				}
+				currentFlagCount = (upperbound + lowerbound) / 2;
+			}
+			return currentFlagCount;
 		}
-		return 0;
+	}
+
+	private boolean testNumberOfFlags(int currentFlagCount, List<Integer> peaksIndexes) {
+		int remainingFlags = currentFlagCount;
+		int prevPos = peaksIndexes.get(0);
+		for (int i = 1; i < peaksIndexes.size(); ++i) {
+			int currPos = peaksIndexes.get(i);
+			if (currPos - prevPos > currentFlagCount) {
+				remainingFlags--;
+				prevPos = currPos;
+				if (remainingFlags == 0) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	private List<Integer> findPeaks(int[] A, int N) {
