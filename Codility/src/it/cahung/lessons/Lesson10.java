@@ -34,7 +34,7 @@ public class Lesson10 {
 		if (maxFlags < 2) {
 			return maxFlags;
 		} else if (maxFlags == 2) {
-			return peaksIndexes.get(1) - peaksIndexes.get(0) > 2 ? 2 : 1;
+			return peaksIndexes.get(1) - peaksIndexes.get(0) >= 2 ? 2 : 1;
 		} else {
 			int lowerbound = 2;
 			int upperbound = maxFlags;
