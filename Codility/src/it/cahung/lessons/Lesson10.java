@@ -77,4 +77,19 @@ public class Lesson10 {
 		}
 		return peaksIndexes;
 	}
+
+	public int solutionMinPerimeterRectangle(int N) {
+		if (N < 1 || N > 1000000000) {
+			throw new IllegalArgumentException("Wrong input");
+		}
+		int minSumFound = Integer.MAX_VALUE;
+		int currentPerimeter;
+		double sqrtN = Math.sqrt(N);
+		for (int i = 1; i <= sqrtN; ++i) {
+			if ((N % i == 0) && ((currentPerimeter = 2 * (N / i + i)) < minSumFound)) {
+				minSumFound = currentPerimeter;
+			}
+		}
+		return minSumFound;
+	}
 }

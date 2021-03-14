@@ -38,16 +38,39 @@ public class Lesson10Test {
 
 	@Test
 	public void lesson10Flags() {
-//		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, })));
-//		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0 })));
-//		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0 })));
-//		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 0, 0, 0, 0, 0 })));
-//		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 1, 0, 0, 0, 0 })));
-//		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 1, 0, 1, 0, 0 })));
-//		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 1, 0, 0, 1, 0 })));
-//		assertEquals(Integer.valueOf(3),
-//				Integer.valueOf(lesson10.solutionFlags(new int[] { 1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0 })));
+		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 0, 0, 0, 0, 0 })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 1, 0, 0, 0, 0 })));
+		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 1, 0, 1, 0, 0 })));
+		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 1, 0, 0, 1, 0 })));
+		assertEquals(Integer.valueOf(3),
+				Integer.valueOf(lesson10.solutionFlags(new int[] { 1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2 })));
 		assertEquals(Integer.valueOf(2),
 				Integer.valueOf(lesson10.solutionFlags(new int[] { 0, 0, 0, 0, 0, 1, 0, 1, 0, 1 })));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson10MinPerimeterRectangleWrongInput() {
+		lesson10.solutionMinPerimeterRectangle(0);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson10MinPerimeterRectangleWrongInputTooMuch() {
+		lesson10.solutionMinPerimeterRectangle(1000000001);
+	}
+
+	@Test
+	public void lesson10MinPerimeterRectangle() {
+		assertEquals(Integer.valueOf(22), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(30)));
+		assertEquals(Integer.valueOf(6), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(2)));
+		assertEquals(Integer.valueOf(4), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(1)));
+		assertEquals(Integer.valueOf(24), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(36)));
+		assertEquals(Integer.valueOf(28), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(48)));
+		assertEquals(Integer.valueOf(8552), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(4564320)));
+		assertEquals(Integer.valueOf(40000), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(100000000)));
+		assertEquals(Integer.valueOf(126500), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(1000000000)));
+
 	}
 }
