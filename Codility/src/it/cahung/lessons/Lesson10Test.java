@@ -71,6 +71,15 @@ public class Lesson10Test {
 		assertEquals(Integer.valueOf(8552), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(4564320)));
 		assertEquals(Integer.valueOf(40000), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(100000000)));
 		assertEquals(Integer.valueOf(126500), Integer.valueOf(lesson10.solutionMinPerimeterRectangle(1000000000)));
-
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson10PeaksWrongInput() {
+		lesson10.solutionPeaks(new int[0]);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void lesson10PeaksWrongInputTooMuch() {
+		lesson10.solutionPeaks(new int[100001]);
 	}
 }

@@ -92,4 +92,12 @@ public class Lesson10 {
 		}
 		return minSumFound;
 	}
+
+	public int solutionPeaks(int[] A) {
+		int N = A != null ? A.length : 0;
+		if (N < 1 || N > 100000) {
+			throw new IllegalArgumentException("Wrong input");
+		}
+		return 0;
+	}
 }
