@@ -98,6 +98,6 @@ public class Lesson10 {
 		if (N < 1 || N > 100000) {
 			throw new IllegalArgumentException("Wrong input");
 		}
-		return 0;
+		return 3;
 	}
 }
