@@ -68,16 +68,6 @@ public class Lesson10 {
 		return false;
 	}
 
-	private List<Integer> findPeaks(int[] A, int N) {
-		List<Integer> peaksIndexes = new ArrayList<>();
-		for (int i = 1; i < N - 1; ++i) {
-			if (A[i] > A[i - 1] && A[i] > A[i + 1]) {
-				peaksIndexes.add(i);
-			}
-		}
-		return peaksIndexes;
-	}
-
 	public int solutionMinPerimeterRectangle(int N) {
 		if (N < 1 || N > 1000000000) {
 			throw new IllegalArgumentException("Wrong input");
@@ -98,6 +88,22 @@ public class Lesson10 {
 		if (N < 1 || N > 100000) {
 			throw new IllegalArgumentException("Wrong input");
 		}
+		List<Integer> peaks = findPeaks(A, N);
+		int numberOfpeaks = peaks.size();
+		if (numberOfpeaks < 2) {
+			return numberOfpeaks;
+		}
+
 		return 3;
+	}
+
+	private List<Integer> findPeaks(int[] A, int N) {
+		List<Integer> peaksIndexes = new ArrayList<>();
+		for (int i = 1; i < N - 1; ++i) {
+			if (A[i] > A[i - 1] && A[i] > A[i + 1]) {
+				peaksIndexes.add(i);
+			}
+		}
+		return peaksIndexes;
 	}
 }
