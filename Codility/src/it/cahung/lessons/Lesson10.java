@@ -89,12 +89,34 @@ public class Lesson10 {
 			throw new IllegalArgumentException("Wrong input");
 		}
 		List<Integer> peaks = findPeaks(A, N);
-		int numberOfpeaks = peaks.size();
-		if (numberOfpeaks < 2) {
-			return numberOfpeaks;
+		int numberOfPeaks = peaks.size();
+		if (numberOfPeaks < 2) {
+			return numberOfPeaks;
 		}
+		for (int i = numberOfPeaks; i >= 1; --i) {
+			if (N % i == 0) {
+				if (testNumberOfBlocks(i, N, peaks)) {
+					return i;
+				}
+			}
+		}
+		return 0;
+	}
 
-		return 3;
+	private boolean testNumberOfBlocks(int i, int n, List<Integer> peaks) {
+		int currentPeaksIndex = 0;
+		for (int j = i; j <= n; j += i) {
+			int nextValue = peaks.get(currentPeaksIndex);
+			while (nextValue < j) {
+				currentPeaksIndex++;
+				if (currentPeaksIndex < peaks.size()) {
+					nextValue = peaks.get(currentPeaksIndex);
+				} else if (j == n) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	private List<Integer> findPeaks(int[] A, int N) {
