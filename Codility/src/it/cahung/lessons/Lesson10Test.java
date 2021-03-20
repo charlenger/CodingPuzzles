@@ -86,8 +86,8 @@ public class Lesson10Test {
 	@Test
 	public void lesson10Peaks() {
 		assertEquals(Integer.valueOf(0), Integer.valueOf(lesson10.solutionPeaks(new int[] { 0 })));
-		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson10.solutionPeaks(new int[] { 0, 1, 0, 0, 0, 0, })));
-		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson10.solutionPeaks(new int[] { 0, 1, 0, 0, 1, 0, })));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(lesson10.solutionPeaks(new int[] { 0, 1, 0, 0, 0, 0 })));
+		assertEquals(Integer.valueOf(2), Integer.valueOf(lesson10.solutionPeaks(new int[] { 0, 1, 0, 0, 1, 0 })));
 		assertEquals(Integer.valueOf(3),
 				Integer.valueOf(lesson10.solutionPeaks(new int[] { 0, 1, 0, 0, 1, 0, 0, 1, 0 })));
 		assertEquals(Integer.valueOf(3),

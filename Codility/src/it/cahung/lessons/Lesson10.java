@@ -93,30 +93,28 @@ public class Lesson10 {
 		if (numberOfPeaks < 2) {
 			return numberOfPeaks;
 		}
-		for (int i = numberOfPeaks; i >= 1; --i) {
-			if (N % i == 0) {
-				if (testNumberOfBlocks(i, N, peaks)) {
-					return i;
-				}
+		for (int i = 2; i <= N; ++i) {
+			if (N % i == 0 && testBlockSize(i, N, peaks)) {
+				return N / i;
 			}
 		}
 		return 0;
 	}
 
-	private boolean testNumberOfBlocks(int i, int n, List<Integer> peaks) {
-		int currentPeaksIndex = 0;
-		for (int j = i; j <= n; j += i) {
-			int nextValue = peaks.get(currentPeaksIndex);
-			while (nextValue < j) {
-				currentPeaksIndex++;
-				if (currentPeaksIndex < peaks.size()) {
-					nextValue = peaks.get(currentPeaksIndex);
-				} else if (j == n) {
-					return true;
+	private boolean testBlockSize(int blockSize, int N, List<Integer> peaks) {
+		int lowerBoundary = 0;
+		int upperBoundary = blockSize - 1;
+		for (Integer peak : peaks) {
+			if (peak <= upperBoundary) {
+				if (peak >= lowerBoundary) {
+					upperBoundary += blockSize;
+					lowerBoundary += blockSize;
 				}
+			} else {
+				return false;
 			}
 		}
-		return false;
+		return upperBoundary >= N;
 	}
 
 	private List<Integer> findPeaks(int[] A, int N) {
