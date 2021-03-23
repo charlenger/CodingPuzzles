@@ -1,7 +1,5 @@
 package it.cahung.lessons;
 
-import java.util.Arrays;
-
 public class Lesson9 extends Lesson8 {
 
 	public int solutionMaxProfit(int[] A) {
