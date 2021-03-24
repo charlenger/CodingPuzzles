@@ -29,5 +29,8 @@ public class Lesson11Test {
 		assertArrayEquals(new int[] { 2, 3, 2, 3, 0 }, lesson11.solutionCountNonDivisors(new int[] { 3, 1, 2, 1, 6 }));
 		assertArrayEquals(new int[] { 0 }, lesson11.solutionCountNonDivisors(new int[] { 2 }));
 		assertArrayEquals(new int[] { 1, 1 }, lesson11.solutionCountNonDivisors(new int[] { 3, 4 }));
+		assertArrayEquals(new int[] { 1, 0, 1, 1, 1, 1, 1 },
+				lesson11.solutionCountNonDivisors(new int[] { 4, 8, 4, 4, 4, 4, 4 }));
+		assertArrayEquals(new int[] { 0, 0 }, lesson11.solutionCountNonDivisors(new int[] { 4, 4 }));
 	}
 }
